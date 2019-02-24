@@ -67,12 +67,12 @@ try:
         return count
             
     def isBallenced(array):
-        if MIN >= countElement(array, 'T') and MIN >= countElement(array, 'M'):
+        if MIN <= countElement(array, 'T') and MIN <= countElement(array, 'M'):
             return 1
         else:
             return 0
-        
-    print(isBallenced(pizza[0][0]))
+    print(countElement(pizza[0],'T'))   
+    print(isBallenced(pizza[1]))
     
 except:
     print("Error!")
