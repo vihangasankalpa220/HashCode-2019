@@ -14,8 +14,8 @@
 ##  First slice between rows (0,2) and columns (0,1).
 ##  Second slice between rows (0,2) and columns (2,2).
 ##  Third slice between rows (0,2) and columns (3,4).
-'''
-with open("b_small.txt", "r") as ins:
+
+with open("b_small.in", "r") as ins:
     array = []
     data = []
     y = 0
@@ -28,22 +28,52 @@ with open("b_small.txt", "r") as ins:
             array.append(x)
         y+=1
         
-print(array)
-print(data)
-'''
-try:
-    R,C,MIN,MAX = map(int,input().split())
-    
-    pizza = [None]*C
+##print(array)
+##print(data)
+R = int(data[0])
+C = int(data[1])
+MIN = int(data[2])
+MAX = int(data[3])
+print(R,C,MIN,MAX)
 
-    print(pizza)
+try:
+    #R,C,MIN,MAX = map(int,input().split())
     
-    for i in range(0,R+1):
+    #pizza = [None]*R
+    '''
+    for i in range(0,R):
         pizza[i] = list(map(str, input().strip()))
-        if len(pizza[i])> C:
+        if len(pizza[i])!= C:
             break;
-           
+     '''
+    pizza=array
     print(pizza)
+    ##------transpose
+    '''
+    transpose = [[0 for x in range(C)] for y in range(R)]
+    print(transpose)
+    for i in range(0,R-1):
+       for j in range(0,C):
+           transpose[j][i] = pizza[i][j]
+    '''
+    transpose = [list(i) for i in zip(*pizza)]
+    print(transpose)
+    
+    def countElement(lst, x): 
+        count = 0
+        for ele in lst: 
+            if (ele == x): 
+                count = count + 1
+        return count
+            
+    def isBallenced(array):
+        if MIN >= countElement(array, 'T') and MIN >= countElement(array, 'M'):
+            return 1
+        else:
+            return 0
+        
+    print(isBallenced(pizza[0][0]))
+    
 except:
     print("Error!")
     
