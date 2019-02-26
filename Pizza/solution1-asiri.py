@@ -15,7 +15,10 @@
 ##  Second slice between rows (0,2) and columns (2,2).
 ##  Third slice between rows (0,2) and columns (3,4).
 
+#with open("b_small.in", "r") as ins:
+#with open("a_example.in", "r") as ins:
 with open("b_small.in", "r") as ins:
+#with open("d_big.in", "r") as ins:
     array = []
     data = []
     y = 0
@@ -71,8 +74,18 @@ try:
             return 1
         else:
             return 0
-    print(countElement(pizza[0],'T'))   
-    print(isBallenced(pizza[1]))
+    print(countElement(transpose[0],'M'))   
+    print(isBallenced(transpose[0]))
+
+    flag = 0
+    ranges = []
+    for x in range(0,R):
+            if isBallenced(pizza[x])==1:
+                ranges.append(x)
+    print(ranges)
+
+
+            
     
 except:
     print("Error!")
